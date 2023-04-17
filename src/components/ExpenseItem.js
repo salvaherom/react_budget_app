@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 
 const ExpenseItem = (props) => {
     const { id, name, cost } = props;
-    const { dispatch } = useContext(AppContext);
+    const { dispatch, currency } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
         dispatch({
@@ -27,7 +27,7 @@ const ExpenseItem = (props) => {
     return (
         <tr>
             <td>{name}</td>
-            <td>{cost}</td>
+            <td>{currency.sign}{cost}</td>
             <td><button onClick={e => increaseAllocation(name)}>+</button></td>
             <td><TiDelete size="1.5em" onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
