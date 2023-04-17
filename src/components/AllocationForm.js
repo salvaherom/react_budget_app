@@ -35,7 +35,7 @@ const AllocationForm = (props) => {
 
     return (
         <div>
-            <div clasName="row">
+            <div className="row">
                 <div className="input-group mb-3 ml-2">
                     <div className="input-group-prepend">
                         <label className="input-group-text" htmlFor="inputGroupSelect01">Department</label>
