@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
-const AllocationForm = (props) => {
-    const { dispatch, remaining } = useContext(AppContext);
+const AllocationForm = () => {
+    const { dispatch, remaining, currency } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -52,11 +52,11 @@ const AllocationForm = (props) => {
                     <div className="input-group-prepend">
                         <label className="input-group-text" htmlFor="inputGroupSelect02">Allocation</label>
                     </div>
-                    <select className="custom-select" id="inputGroupSelect02" onChange={e => setAction(e.target.value)}>
+                    <select className="custom-select" style={{ marginRight: '2rem' , size: 10}} id="inputGroupSelect02" onChange={e => setAction(e.target.value)}>
                         <option defaultValue value="Add" name="Add">Add</option>
                         <option value="Reduce" name="Reduce">Reduce</option>
                     </select>
-                    <input required='required' type='number' id='cost' value={cost} style={{ marginLeft: '2rem' , size: 10}}
+                    {currency.sign}<input required='required' type='number' id='cost' value={cost} style={{ marginLeft: '0rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                     </input>
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
